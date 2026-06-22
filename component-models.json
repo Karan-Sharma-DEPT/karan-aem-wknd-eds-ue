@@ -214,5 +214,43 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "teaser",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false,
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Image Alt Text",
+        "require": true,
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "textContent_text",
+        "label": " Text",
+        "required": true,
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "textContent_cta",
+        "label": " CTA",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "textContent_ctaText",
+        "label": " CTA Label",
+        "valueType": "string"
+      }
+    ]
   }
 ]
