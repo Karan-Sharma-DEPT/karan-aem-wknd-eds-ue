@@ -152,7 +152,8 @@
                 "template": {
                   "name": "Heading Intro",
                   "model": "heading-intro",
-                  "heading": "<h2>Most platforms are bolted together.</h2>",
+                  "title": "Most platforms are bolted together.",
+                  "titleType": "h2",
                   "text": "<p>Add the supporting sentence that explains the statement above.</p>"
                 }
               }

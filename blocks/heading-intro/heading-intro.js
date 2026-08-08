@@ -2,7 +2,7 @@
  * loads and decorates the heading-intro block
  *
  * expected content: two rows, one cell each
- *   row 1 - the display heading
+ *   row 1 - the display heading, always a heading element (title + titleType)
  *   row 2 - the supporting intro copy
  * both rows are optional; rows are identified by their content rather than
  * their position so an author can supply either one on its own.
@@ -10,7 +10,13 @@
  * @param {Element} block The block element
  */
 export default function decorate(block) {
-  const rows = [...block.children];
+  // an author can set the heading level without typing a heading, which leaves
+  // an empty element behind; drop those so they take up no space
+  const rows = [...block.children].filter((row) => {
+    if (row.textContent.trim()) return true;
+    row.remove();
+    return false;
+  });
 
   // inner wrapper keeps the content grid at its design width while the block
   // itself spans the section so the vertical grid rules land in the gutters
