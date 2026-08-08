@@ -1,0 +1,214 @@
+/* faq — heading column paired with an accordion list of questions */
+
+/* let the block span the full section so its background is full bleed */
+.faq-container .faq-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.faq {
+  --faq-text: rgb(18 32 31);
+  --faq-question-color: rgb(20 20 20);
+  --faq-answer-color: rgb(26 26 26);
+  --faq-icon-color: rgb(38 38 38);
+  --faq-divider: rgb(214 206 199);
+  --faq-divider-open: rgb(178 171 166);
+  --faq-icon-size: 18px;
+  --faq-icon-weight: 2px;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 48px 20px;
+  color: var(--faq-text);
+  background-color: rgb(250 245 241);
+}
+
+/* heading column */
+
+.faq .faq-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq .faq-eyebrow {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 0.96;
+}
+
+.faq .faq-intro :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+}
+
+/* the global partial underline treatment does not apply in this block */
+.faq .faq-intro h2::after,
+.faq .faq-question h2::after {
+  content: none;
+}
+
+/* accordion */
+
+.faq .faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.faq .faq-item {
+  padding-top: 24px;
+  border-top: 1px solid var(--faq-divider);
+}
+
+.faq .faq-item[open] {
+  padding-top: 32px;
+  border-top-color: var(--faq-divider-open);
+}
+
+.faq .faq-question {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  list-style: none;
+}
+
+/* a question with no answer is not a control, so only <summary> gets the cursor */
+.faq summary.faq-question {
+  cursor: pointer;
+}
+
+/* Safari still paints the default disclosure triangle without this */
+.faq .faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq .faq-question:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 4px;
+}
+
+.faq .faq-question :is(h1, h2, h3, h4, h5, h6) {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--faq-question-color);
+  overflow-wrap: break-word;
+}
+
+/* the "+" / "-" mark, drawn as two bars so it needs no image request */
+.faq .faq-icon {
+  position: relative;
+  flex: none;
+  width: var(--faq-icon-size);
+  height: var(--faq-icon-size);
+}
+
+.faq .faq-icon::before,
+.faq .faq-icon::after {
+  position: absolute;
+  border-radius: 1px;
+  background-color: var(--faq-icon-color);
+  content: '';
+}
+
+.faq .faq-icon::before {
+  inset: calc(50% - (var(--faq-icon-weight) / 2)) 0 auto;
+  height: var(--faq-icon-weight);
+}
+
+.faq .faq-icon::after {
+  inset: 0 auto 0 calc(50% - (var(--faq-icon-weight) / 2));
+  width: var(--faq-icon-weight);
+}
+
+/* an open panel drops the vertical bar, leaving a minus */
+.faq .faq-item[open] .faq-icon::after {
+  content: none;
+}
+
+.faq .faq-answer {
+  margin-top: 32px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--faq-answer-color);
+  overflow-wrap: break-word;
+}
+
+.faq .faq-answer > * {
+  margin: 0;
+}
+
+.faq .faq-answer > * + * {
+  margin-top: 0.75em;
+}
+
+.faq .faq-answer :is(ul, ol) {
+  padding-left: 1.2em;
+}
+
+@media (width >= 900px) {
+  .faq {
+    display: grid;
+    grid-template-columns: 336px minmax(0, 1fr);
+    gap: 80px;
+    align-items: start;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding: 84px 80px 84px 64px;
+  }
+
+  /* keep each part in its own column even when the author omits the heading */
+  .faq .faq-intro {
+    grid-column: 1;
+  }
+
+  .faq .faq-list {
+    grid-column: 2;
+    gap: 64px;
+
+    /* the design closes the list with a rule below the last question */
+    border-bottom: 1px solid var(--faq-divider);
+    padding-bottom: 64px;
+  }
+
+  /* with no heading column the list takes the full width */
+  .faq .faq-list:only-child {
+    grid-column: 1 / -1;
+  }
+
+  .faq .faq-intro :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 48px;
+    letter-spacing: -0.04em;
+  }
+
+  .faq .faq-question {
+    align-items: center;
+  }
+
+  .faq .faq-question :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 28px;
+    line-height: 0.96;
+  }
+
+  .faq .faq-answer {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+}
