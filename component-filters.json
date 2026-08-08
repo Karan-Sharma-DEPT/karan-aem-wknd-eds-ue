@@ -15,6 +15,7 @@
       "hero",
       "cards",
       "columns",
+      "faq",
       "fragment"
     ]
   },
@@ -37,6 +38,12 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "faq",
+    "components": [
+      "faq-item"
     ]
   }
 ]
