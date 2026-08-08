@@ -1,0 +1,118 @@
+/* heading-intro — large statement heading paired with supporting intro copy */
+
+.heading-intro {
+  --heading-intro-color: rgb(18 32 31);
+  --heading-intro-mark-size: 11.62px;
+  --heading-intro-mark-weight: 1.16px;
+
+  box-sizing: border-box;
+  padding: 48px 20px;
+  color: var(--heading-intro-color);
+  background-color: var(--background-color);
+}
+
+.heading-intro .heading-intro-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.heading-intro .heading-intro-heading :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+}
+
+/* the global partial underline treatment does not apply in this block */
+.heading-intro .heading-intro-heading h2::after {
+  content: none;
+}
+
+.heading-intro .heading-intro-body {
+  position: relative;
+  padding: 24px 0;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.heading-intro .heading-intro-body > * {
+  margin: 0;
+}
+
+.heading-intro .heading-intro-body > * + * {
+  margin-top: 0.75em;
+}
+
+/* "+" grid marks framing the intro copy */
+.heading-intro .heading-intro-mark {
+  position: absolute;
+  width: var(--heading-intro-mark-size);
+  height: var(--heading-intro-mark-size);
+}
+
+.heading-intro .heading-intro-mark::before,
+.heading-intro .heading-intro-mark::after {
+  position: absolute;
+  background-color: currentcolor;
+  content: '';
+}
+
+.heading-intro .heading-intro-mark::before {
+  inset: calc(50% - (var(--heading-intro-mark-weight) / 2)) 0 auto;
+  height: var(--heading-intro-mark-weight);
+}
+
+.heading-intro .heading-intro-mark::after {
+  inset: 0 auto 0 calc(50% - (var(--heading-intro-mark-weight) / 2));
+  width: var(--heading-intro-mark-weight);
+}
+
+.heading-intro .heading-intro-mark-tl { inset: 0 auto auto 0; }
+.heading-intro .heading-intro-mark-tr { inset: 0 0 auto auto; }
+.heading-intro .heading-intro-mark-bl { inset: auto auto 0 0; }
+.heading-intro .heading-intro-mark-br { inset: auto 0 0 auto; }
+
+@media (width >= 900px) {
+  /* let the block span the full section so the grid rules sit in the gutters */
+  .heading-intro-container .heading-intro-wrapper {
+    max-width: unset;
+    padding: 0;
+  }
+
+  .heading-intro {
+    padding: 80px 50px;
+    border-inline: 1px solid rgb(18 32 31 / 20%);
+  }
+
+  .heading-intro .heading-intro-content {
+    display: grid;
+    grid-template-columns: minmax(0, 747fr) minmax(0, 396fr);
+    gap: 160px;
+    align-items: center;
+    max-width: 1304px;
+    margin-inline: auto;
+  }
+
+  /* keep each part in its own column even when the author omits the other */
+  .heading-intro .heading-intro-heading { grid-column: 1; }
+
+  .heading-intro .heading-intro-heading :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 48px;
+    letter-spacing: -0.04em;
+  }
+
+  .heading-intro .heading-intro-body {
+    grid-column: 2;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+}
