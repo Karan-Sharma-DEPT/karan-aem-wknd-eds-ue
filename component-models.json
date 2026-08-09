@@ -138,6 +138,20 @@
             "value": "highlight"
           }
         ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "backgroundImage",
+        "label": "Background Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "padding",
+        "label": "Padding (top bottom, px)",
+        "description": "Enter top and bottom padding in pixels, separated by a space, e.g. \"40 80\". A single value applies to both."
       }
     ]
   },

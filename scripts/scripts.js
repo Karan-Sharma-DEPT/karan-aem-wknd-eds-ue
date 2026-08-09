@@ -110,6 +110,23 @@ export function decorateButtons(main) {
 }
 
 /**
+ * Applies section-level style options (background image, padding) authored
+ * via section metadata to the section's inline style.
+ * @param {Element} main The main element
+ */
+function decorateSectionStyles(main) {
+  main.querySelectorAll(':scope > .section').forEach((section) => {
+    const { backgroundImage, padding } = section.dataset;
+    if (backgroundImage) section.style.backgroundImage = `url('${backgroundImage}')`;
+    if (padding) {
+      const [top, bottom = top] = padding.trim().split(/\s+/);
+      if (top) section.style.paddingTop = `${top}px`;
+      if (bottom) section.style.paddingBottom = `${bottom}px`;
+    }
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -118,6 +135,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionStyles(main);
   decorateBlocks(main);
   decorateButtons(main);
 }
