@@ -13,6 +13,7 @@
       "button",
       "title",
       "hero",
+      "hero-centered",
       "cards",
       "columns",
       "fragment"
@@ -37,6 +38,12 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "hero-centered",
+    "components": [
+      "button"
     ]
   }
 ]
