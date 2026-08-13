@@ -190,6 +190,58 @@
     ]
   },
   {
+    "id": "hero-centered",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Background Image",
+        "description": "Optional full-bleed texture. The decorative grid renders with or without it.",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Background Image Alt",
+        "description": "Leave empty — the background is decorative and hidden from screen readers.",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "badge",
+        "label": "Badge",
+        "description": "Short monospaced eyebrow above the headline, e.g. \"Rubrik Agent Cloud\"."
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content",
+        "label": "Headline and Body",
+        "description": "Format the first line as Heading 1 (aim for 40–60 characters), then add an optional supporting paragraph.",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media",
+        "label": "Media",
+        "description": "Optional wide image shown below the buttons.",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mediaAlt",
+        "label": "Media Alt",
+        "description": "Describe the image. Leave empty only if it is purely decorative.",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "hero",
     "fields": [
       {
