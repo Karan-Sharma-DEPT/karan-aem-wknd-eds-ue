@@ -110,16 +110,27 @@ export function decorateButtons(main) {
 }
 
 /**
+ * Applies an authored hex color to default content text elements.
+ * @param {HTMLElement} main The main container element
+ */
+export function decorateTextColors(main) {
+  main.querySelectorAll('[data-text-color]').forEach((el) => {
+    el.style.color = el.dataset.textColor;
+    el.removeAttribute('data-text-color');
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
-// eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  decorateTextColors(main);
 }
 
 /**

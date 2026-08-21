@@ -81,6 +81,18 @@
     ]
   },
   {
+    "id": "text",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textColor",
+        "label": "Text Color",
+        "description": "Hex color code (e.g. #ff0000) to apply to this text"
+      }
+    ]
+  },
+  {
     "id": "button",
     "fields": [
       {
