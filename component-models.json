@@ -81,18 +81,6 @@
     ]
   },
   {
-    "id": "text",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "textColor",
-        "label": "Text Color",
-        "description": "Hex color code (e.g. #ff0000) to apply to this text"
-      }
-    ]
-  },
-  {
     "id": "button",
     "fields": [
       {
@@ -169,6 +157,25 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "colored-text",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textColor",
+        "label": "Text Color",
+        "description": "Hex color code (e.g. #ff0000) to apply to this text"
       }
     ]
   },
