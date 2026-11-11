@@ -20,6 +20,26 @@
         "name": "keywords",
         "multi": true,
         "label": "Keywords"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "template",
+        "label": "Template",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Adventure",
+            "value": "adventure"
+          },
+          {
+            "name": "Article",
+            "value": "article"
+          }
+        ]
       }
     ]
   },
