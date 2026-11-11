@@ -23,11 +23,24 @@
           "label": "Keywords"
         },
         {
-          "component": "text",
+          "component": "select",
           "valueType": "string",
           "name": "template",
-          "multi": true,
-          "label": "template"
+          "label": "Template",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Adventure",
+              "value": "adventure"
+            },
+            {
+              "name": "Article",
+              "value": "article"
+            }
+          ]
         }
       ]
     }
